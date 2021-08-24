@@ -23,6 +23,18 @@ import android.util.AttributeSet;
 
 import androidx.annotation.Nullable;
 
+import com.haibin.calendarview.listener.OnCalendarInterceptListener;
+import com.haibin.calendarview.listener.OnCalendarLongClickListener;
+import com.haibin.calendarview.listener.OnCalendarMultiSelectListener;
+import com.haibin.calendarview.listener.OnCalendarRangeSelectListener;
+import com.haibin.calendarview.listener.OnCalendarSelectListener;
+import com.haibin.calendarview.listener.OnClickCalendarPaddingListener;
+import com.haibin.calendarview.listener.OnMonthChangeListener;
+import com.haibin.calendarview.listener.OnViewChangeListener;
+import com.haibin.calendarview.listener.OnWeekChangeListener;
+import com.haibin.calendarview.listener.OnYearChangeListener;
+import com.haibin.calendarview.listener.OnYearViewChangeListener;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -33,7 +45,7 @@ import java.util.Map;
  * Google规范化的属性委托,
  * 代码量多，但是不影响阅读性
  */
-final class CalendarViewDelegate {
+final class CalendarViewDelegate<OnInnerDateSelectedListener> {
 
     /**
      * 周起始：周日
@@ -333,65 +345,65 @@ final class CalendarViewDelegate {
     /**
      * 点击Padding位置事件
      */
-    CalendarView.OnClickCalendarPaddingListener mClickCalendarPaddingListener;
+    OnClickCalendarPaddingListener mClickCalendarPaddingListener;
 
     /**
      * 日期拦截事件
      */
-    CalendarView.OnCalendarInterceptListener mCalendarInterceptListener;
+    OnCalendarInterceptListener mCalendarInterceptListener;
 
     /**
      * 日期选中监听
      */
-    CalendarView.OnCalendarSelectListener mCalendarSelectListener;
+    OnCalendarSelectListener mCalendarSelectListener;
 
     /**
      * 范围选择
      */
-    CalendarView.OnCalendarRangeSelectListener mCalendarRangeSelectListener;
+    OnCalendarRangeSelectListener mCalendarRangeSelectListener;
 
 
     /**
      * 多选选择事件
      */
-    CalendarView.OnCalendarMultiSelectListener mCalendarMultiSelectListener;
+    OnCalendarMultiSelectListener mCalendarMultiSelectListener;
 
     /**
      * 外部日期长按事件
      */
-    CalendarView.OnCalendarLongClickListener mCalendarLongClickListener;
+    OnCalendarLongClickListener mCalendarLongClickListener;
 
     /**
      * 内部日期切换监听，用于内部更新计算
      */
-    CalendarView.OnInnerDateSelectedListener mInnerListener;
+    com.haibin.calendarview.listener.OnInnerDateSelectedListener mInnerListener;
 
     /**
      * 快速年份切换
      */
-    CalendarView.OnYearChangeListener mYearChangeListener;
+    OnYearChangeListener mYearChangeListener;
 
 
     /**
      * 月份切换事件
      */
-    CalendarView.OnMonthChangeListener mMonthChangeListener;
+    OnMonthChangeListener mMonthChangeListener;
 
     /**
      * 周视图改变事件
      */
-    CalendarView.OnWeekChangeListener mWeekChangeListener;
+    OnWeekChangeListener mWeekChangeListener;
 
     /**
      * 视图改变事件
      */
-    CalendarView.OnViewChangeListener mViewChangeListener;
+    OnViewChangeListener mViewChangeListener;
 
 
     /**
      * 年视图改变事件
      */
-    CalendarView.OnYearViewChangeListener mYearViewChangeListener;
+    OnYearViewChangeListener mYearViewChangeListener;
 
     /**
      * 保存选中的日期

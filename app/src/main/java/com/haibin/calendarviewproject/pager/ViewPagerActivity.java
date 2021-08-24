@@ -13,6 +13,8 @@ import com.google.android.material.tabs.TabLayout;
 import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.CalendarLayout;
 import com.haibin.calendarview.CalendarView;
+import com.haibin.calendarview.listener.OnCalendarSelectListener;
+import com.haibin.calendarview.listener.OnYearChangeListener;
 import com.haibin.calendarviewproject.R;
 import com.haibin.calendarviewproject.base.activity.BaseActivity;
 import com.haibin.calendarviewproject.base.fragment.FragmentAdapter;
@@ -28,8 +30,8 @@ import java.util.Map;
 
 public class ViewPagerActivity extends BaseActivity implements
         View.OnClickListener,
-        CalendarView.OnCalendarSelectListener,
-        CalendarView.OnYearChangeListener {
+        OnCalendarSelectListener,
+        OnYearChangeListener {
 
     TextView mTextMonthDay;
 

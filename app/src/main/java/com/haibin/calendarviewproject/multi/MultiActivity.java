@@ -13,6 +13,11 @@ import android.widget.Toast;
 import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.CalendarLayout;
 import com.haibin.calendarview.CalendarView;
+import com.haibin.calendarview.listener.OnCalendarInterceptListener;
+import com.haibin.calendarview.listener.OnCalendarMultiSelectListener;
+import com.haibin.calendarview.listener.OnCalendarSelectListener;
+import com.haibin.calendarview.listener.OnMonthChangeListener;
+import com.haibin.calendarview.listener.OnYearChangeListener;
 import com.haibin.calendarviewproject.Article;
 import com.haibin.calendarviewproject.ArticleAdapter;
 import com.haibin.calendarviewproject.R;
@@ -24,11 +29,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MultiActivity extends BaseActivity implements
-        CalendarView.OnCalendarMultiSelectListener,
-        CalendarView.OnCalendarInterceptListener,
-        CalendarView.OnYearChangeListener,
-        CalendarView.OnMonthChangeListener,
-        CalendarView.OnCalendarSelectListener,
+        OnCalendarMultiSelectListener,
+        OnCalendarInterceptListener,
+        OnYearChangeListener,
+        OnMonthChangeListener,
+        OnCalendarSelectListener,
         View.OnClickListener {
 
     TextView mTextMonthDay;

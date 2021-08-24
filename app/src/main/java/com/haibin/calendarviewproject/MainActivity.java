@@ -16,6 +16,14 @@ import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.CalendarLayout;
 import com.haibin.calendarview.CalendarView;
 import com.haibin.calendarview.TrunkBranchAnnals;
+import com.haibin.calendarview.listener.OnCalendarInterceptListener;
+import com.haibin.calendarview.listener.OnCalendarLongClickListener;
+import com.haibin.calendarview.listener.OnCalendarSelectListener;
+import com.haibin.calendarview.listener.OnMonthChangeListener;
+import com.haibin.calendarview.listener.OnViewChangeListener;
+import com.haibin.calendarview.listener.OnWeekChangeListener;
+import com.haibin.calendarview.listener.OnYearChangeListener;
+import com.haibin.calendarview.listener.OnYearViewChangeListener;
 import com.haibin.calendarviewproject.base.activity.BaseActivity;
 import com.haibin.calendarviewproject.colorful.ColorfulActivity;
 import com.haibin.calendarviewproject.custom.CustomActivity;
@@ -32,20 +40,21 @@ import com.haibin.calendarviewproject.range.RangeActivity;
 import com.haibin.calendarviewproject.simple.SimpleActivity;
 import com.haibin.calendarviewproject.single.SingleActivity;
 import com.haibin.calendarviewproject.solay.SolarActivity;
+import com.haibin.calendarviewproject.vertical.VerticalActivity;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends BaseActivity implements
-        CalendarView.OnCalendarSelectListener,
-        CalendarView.OnCalendarLongClickListener,
-        CalendarView.OnMonthChangeListener,
-        CalendarView.OnYearChangeListener,
-        CalendarView.OnWeekChangeListener,
-        CalendarView.OnViewChangeListener,
-        CalendarView.OnCalendarInterceptListener,
-        CalendarView.OnYearViewChangeListener,
+        OnCalendarSelectListener,
+        OnCalendarLongClickListener,
+        OnMonthChangeListener,
+        OnYearChangeListener,
+        OnWeekChangeListener,
+        OnViewChangeListener,
+        OnCalendarInterceptListener,
+        OnYearViewChangeListener,
         DialogInterface.OnClickListener,
         View.OnClickListener {
 
@@ -277,6 +286,7 @@ public class MainActivity extends BaseActivity implements
         findViewById(R.id.ll_progress).setOnClickListener(this);
         findViewById(R.id.ll_custom).setOnClickListener(this);
         findViewById(R.id.ll_full).setOnClickListener(this);
+        findViewById(R.id.ll_vertical).setOnClickListener(this);
     }
 
     @Override
@@ -318,6 +328,10 @@ public class MainActivity extends BaseActivity implements
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.ll_vertical:
+                VerticalActivity.show(this);
+
+                break;
             case R.id.ll_flyme:
                 MeiZuActivity.show(this);
                 //CalendarActivity.show(this);

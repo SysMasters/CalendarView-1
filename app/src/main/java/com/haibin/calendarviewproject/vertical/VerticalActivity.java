@@ -1,4 +1,4 @@
-package com.haibin.calendarviewproject.range;
+package com.haibin.calendarviewproject.vertical;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.CalendarView;
+import com.haibin.calendarview.CalendarView2;
 import com.haibin.calendarview.listener.OnCalendarInterceptListener;
 import com.haibin.calendarview.listener.OnCalendarRangeSelectListener;
 import com.haibin.calendarview.listener.OnMonthChangeListener;
@@ -20,46 +21,31 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RangeActivity extends BaseActivity implements
+public class VerticalActivity extends BaseActivity implements
         OnCalendarInterceptListener,
         OnCalendarRangeSelectListener,
         OnMonthChangeListener,
         View.OnClickListener {
 
-    TextView mTextLeftDate;
-    TextView mTextLeftWeek;
 
-    TextView mTextRightDate;
-    TextView mTextRightWeek;
-
-    TextView mTextMinRange;
-    TextView mTextMaxRange;
-
-    CalendarView mCalendarView;
+    CalendarView2 mCalendarView;
 
     private int mCalendarHeight;
 
     public static void show(Context context) {
-        context.startActivity(new Intent(context, RangeActivity.class));
+        context.startActivity(new Intent(context, VerticalActivity.class));
     }
 
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_range;
+        return R.layout.activity_vertical;
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     protected void initView() {
         setStatusBarDarkMode();
-        mTextLeftDate = findViewById(R.id.tv_left_date);
-        mTextLeftWeek = findViewById(R.id.tv_left_week);
-        mTextRightDate = findViewById(R.id.tv_right_date);
-        mTextRightWeek = findViewById(R.id.tv_right_week);
-
-        mTextMinRange = findViewById(R.id.tv_min_range);
-        mTextMaxRange = findViewById(R.id.tv_max_range);
 
         mCalendarView = findViewById(R.id.calendarView);
         mCalendarView.setOnCalendarRangeSelectListener(this);
@@ -67,11 +53,6 @@ public class RangeActivity extends BaseActivity implements
         //设置日期拦截事件，当前有效
         mCalendarView.setOnCalendarInterceptListener(this);
 
-        findViewById(R.id.iv_clear).setOnClickListener(this);
-        findViewById(R.id.iv_reduce).setOnClickListener(this);
-        findViewById(R.id.iv_increase).setOnClickListener(this);
-        findViewById(R.id.tv_commit).setOnClickListener(this);
-        findViewById(R.id.tv_title).setOnClickListener(this);
 
         mCalendarHeight = dipToPx(this, 46);
 
@@ -115,8 +96,6 @@ public class RangeActivity extends BaseActivity implements
         //此方法在巨大的数据量上不影响遍历性能，推荐使用
         mCalendarView.setSchemeDate(map);
 
-        mTextMinRange.setText(String.format("min range = %s", mCalendarView.getMinSelectRange()));
-        mTextMaxRange.setText(String.format("max range = %s", mCalendarView.getMaxSelectRange()));
     }
 
     private Calendar getSchemeCalendar(int year, int month, int day, int color, String text) {
@@ -141,11 +120,6 @@ public class RangeActivity extends BaseActivity implements
                 break;
             case R.id.iv_clear:
                 mCalendarView.clearSelectRange();
-                mTextLeftWeek.setText("开始日期");
-                mTextRightWeek.setText("结束日期");
-                mTextLeftDate.setText("");
-                mTextRightDate.setText("");
-                //mCalendarView.setSelectCalendarRange(2018,10,13,2018,10,13);
                 break;
             case R.id.iv_reduce:
 
@@ -240,15 +214,15 @@ public class RangeActivity extends BaseActivity implements
     @SuppressLint("SetTextI18n")
     @Override
     public void onCalendarRangeSelect(Calendar calendar, boolean isEnd) {
-        if (!isEnd) {
-            mTextLeftDate.setText(calendar.getMonth() + "月" + calendar.getDay() + "日");
-            mTextLeftWeek.setText(WEEK[calendar.getWeek()]);
-            mTextRightWeek.setText("结束日期");
-            mTextRightDate.setText("");
-        } else {
-            mTextRightDate.setText(calendar.getMonth() + "月" + calendar.getDay() + "日");
-            mTextRightWeek.setText(WEEK[calendar.getWeek()]);
-        }
+//        if (!isEnd) {
+//            mTextLeftDate.setText(calendar.getMonth() + "月" + calendar.getDay() + "日");
+//            mTextLeftWeek.setText(WEEK[calendar.getWeek()]);
+//            mTextRightWeek.setText("结束日期");
+//            mTextRightDate.setText("");
+//        } else {
+//            mTextRightDate.setText(calendar.getMonth() + "月" + calendar.getDay() + "日");
+//            mTextRightWeek.setText(WEEK[calendar.getWeek()]);
+//        }
     }
 
     private static final String[] WEEK = {"周日", "周一", "周二", "周三", "周四", "周五", "周六"};

@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.CalendarView;
+import com.haibin.calendarview.listener.OnCalendarSelectListener;
+import com.haibin.calendarview.listener.OnYearChangeListener;
 import com.haibin.calendarviewproject.R;
 import com.haibin.calendarviewproject.base.activity.BaseActivity;
 import com.haibin.calendarviewproject.colorful.ColorfulActivity;
@@ -26,8 +28,8 @@ import java.util.Map;
  */
 
 public class FullActivity extends BaseActivity implements
-        CalendarView.OnCalendarSelectListener,
-        CalendarView.OnYearChangeListener,
+        OnCalendarSelectListener,
+        OnYearChangeListener,
         View.OnClickListener {
 
     TextView mTextMonthDay;

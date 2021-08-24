@@ -14,6 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.CalendarLayout;
 import com.haibin.calendarview.CalendarView;
+import com.haibin.calendarview.listener.OnCalendarSelectListener;
+import com.haibin.calendarview.listener.OnClickCalendarPaddingListener;
+import com.haibin.calendarview.listener.OnYearChangeListener;
 import com.haibin.calendarviewproject.Article;
 import com.haibin.calendarviewproject.ArticleAdapter;
 import com.haibin.calendarviewproject.R;
@@ -28,8 +31,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MixActivity extends BaseActivity implements
-        CalendarView.OnCalendarSelectListener,
-        CalendarView.OnYearChangeListener,
+        OnCalendarSelectListener,
+        OnYearChangeListener,
         View.OnClickListener {
 
     TextView mTextMonthDay;
@@ -89,7 +92,7 @@ public class MixActivity extends BaseActivity implements
         mCalendarLayout = findViewById(R.id.calendarLayout);
         mCalendarView.setOnCalendarSelectListener(this);
         mCalendarView.setOnYearChangeListener(this);
-        mCalendarView.setOnClickCalendarPaddingListener(new CalendarView.OnClickCalendarPaddingListener() {
+        mCalendarView.setOnClickCalendarPaddingListener(new OnClickCalendarPaddingListener() {
             @Override
             public void onClickCalendarPadding(float x, float y, boolean isMonthView,
                                                Calendar adjacentCalendar, Object obj) {

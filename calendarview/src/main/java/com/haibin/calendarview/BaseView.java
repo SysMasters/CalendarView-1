@@ -300,7 +300,7 @@ public abstract class BaseView extends View implements View.OnClickListener, Vie
         }
         for (Calendar a : mItems) {
             if (mDelegate.mSchemeDatesMap.containsKey(a.toString())) {
-                Calendar d = mDelegate.mSchemeDatesMap.get(a.toString());
+                Calendar d = (Calendar) mDelegate.mSchemeDatesMap.get(a.toString());
                 if (d == null) {
                     continue;
                 }

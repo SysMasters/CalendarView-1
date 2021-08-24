@@ -12,6 +12,9 @@ import android.widget.TextView;
 import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.CalendarLayout;
 import com.haibin.calendarview.CalendarView;
+import com.haibin.calendarview.listener.OnCalendarLongClickListener;
+import com.haibin.calendarview.listener.OnCalendarSelectListener;
+import com.haibin.calendarview.listener.OnYearChangeListener;
 import com.haibin.calendarviewproject.Article;
 import com.haibin.calendarviewproject.ArticleAdapter;
 import com.haibin.calendarviewproject.R;
@@ -26,9 +29,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class IndexActivity extends BaseActivity implements
-        CalendarView.OnCalendarSelectListener,
-        CalendarView.OnCalendarLongClickListener,
-        CalendarView.OnYearChangeListener,
+        OnCalendarSelectListener,
+        OnCalendarLongClickListener,
+        OnYearChangeListener,
         View.OnClickListener {
 
     TextView mTextMonthDay;
